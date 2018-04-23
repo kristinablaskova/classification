@@ -29,7 +29,7 @@ dist = {}  # type: Dict[str, pg.DiscreteDistribution]
 for name in state_names:
     dist[name] = pg.DiscreteDistribution(summary[name])
     
-d = pg.IndependentComponentsDistribution(list(dist.values()))
+d = list(dist.values())
 
 nb_model = pg.NaiveBayes(d)
 nb_predict = nb_model.predict([[prvok] for prvok in value_sequence])
